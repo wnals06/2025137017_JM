@@ -29,4 +29,15 @@ public class NewBehaviourScript : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if ( collision.CompareTag("Finish"))
+        {
+            collision.GetComponent<LevelObject>().MoveToNextLevel();
+        }
+        {
+            
+        }
+    }
 }
