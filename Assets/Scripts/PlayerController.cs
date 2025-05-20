@@ -13,6 +13,7 @@ public class NewBehaviourScript : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
 
+    public float Score;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,8 +43,10 @@ public class NewBehaviourScript : MonoBehaviour
         {
             collision.GetComponent<LevelObject>().MoveToNextLevel();
         }
+        if (collision.CompareTag("Item"))
         {
-            
+            Score += collision.GetComponent<ItemObject>().GetPoint();
         }
+
     }
 }
